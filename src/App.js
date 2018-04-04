@@ -1,78 +1,50 @@
 import React, { Component } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
-import api from './Api'
+import Home from './Home'
+import Series from './Series'
+import NewSeries from './NewSeries'
+import About from './About'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      genres: [],
-      isLoading: false
-    }
-  }
-  componentDidMount() {
-    this.setState({ isLoading: true })
-    api.loadGenres()
-      .then((res) => {
-        this.setState({
-          isLoading: false,
-          genres: res.data
-        })
-      })
-  }
-  renderGenreLink(genre) {
-    return (
-      <span>&nbsp;<a href="/">{ genre }</a>&nbsp;</span>
-    )
-  }
   render() {
     return (
-      <div className="App">
-        <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
-          <div className="container">
-            <div className="navbar-header page-scroll">
-              <a className="navbar-brand page-scroll" href="#page-top">
-                <img src="images/logo.png" height="30" alt=""/>
-              </a>
-            </div>
+      <Router>
+        <div className="App">
+          <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div className="container">
+              <div className="navbar-header page-scroll">
+                <Link className="navbar-brand page-scroll" to="/">
+                  <img src="images/logo.png" height="30" alt=""/>
+                </Link>
+              </div>
 
-            <div className="collapse navbar-collapse navbar-ex1-collapse">
-              <ul className="nav navbar-nav">
-                <li>
-                  <a href="">Menu item</a>
-                </li>
-              </ul>
-            </div>
-
-          </div>
-        </nav>
-
-        <section id="intro" className="intro-section">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <h1><img src="images/logo.png" alt=""/></h1>
-                <p>Nunca mais esqueça uma série que você assistiu ou que alguém lhe indicou.</p>
+              <div className="collapse navbar-collapse navbar-ex1-collapse">
+                <ul className="nav navbar-nav">
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/new">Nova série</Link>
+                  </li>
+                  <li>
+                    <Link to="/about">Sobre</Link>
+                  </li>
+                </ul>
               </div>
             </div>
-          </div>
-        </section>
+          </nav>
 
-        <section>
-          { 
-            this.state.isLoading &&
-            <span>Aguarde, carregando...</span>
-          }
-          {
-            !this.state.isLoading &&
-            <div>
-              Ver séries do gênero: 
-              {this.state.genres.map(this.renderGenreLink)}
-            </div>
-          }
-        </section>
-      </div>
+          <Route path="/" exact component={Home}/>
+          <Route path="/series/:genre" component={Series}/>
+          <Route path="/new" exact component={NewSeries}/>
+          <Route path="/about" exact component={About}/>
+        </div>
+      </Router>
     )
   }
 }
