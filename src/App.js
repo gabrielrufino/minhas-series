@@ -8,6 +8,7 @@ import {
 import Home from './Home'
 import Series from './Series'
 import NewSeries from './NewSeries'
+import EditSerie from './EditSeries'
 import About from './About'
 
 class App extends Component {
@@ -18,7 +19,7 @@ class App extends Component {
           <nav className="navbar navbar-expand-lg navbar-light navbar-fixed-top">
             <div className="container">
               <Link className="navbar-brand page-scroll" to="/">
-                <img src="images/logo.png" height="30" alt=""/>
+                <img src="/images/logo.png" height="30" alt=""/>
               </Link>
 
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +43,8 @@ class App extends Component {
           </nav>
 
           <Route path="/" exact component={ Home } />
-          <Route path="/series/:genre" component={ Series } />
+          <Route path="/series/:genre" exact component={ Series } />
+          <Route path='/series/edit/:id' component={ EditSerie } />
           <Route path="/new" exact component={ NewSeries } />
           <Route path="/about" exact component={ About } />
         </div>

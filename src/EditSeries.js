@@ -4,24 +4,37 @@ import { Redirect } from 'react-router-dom'
 import api from './Api'
 
 const statuses = {
-    'watched': 'Assistido',
-    'watching': 'Assistindo',
-    'toWatch': 'Assistir'
+	'watched': 'Assistido',
+	'watching': 'Assistindo',
+	'toWatch': 'Assistir'
 }
 
-class NewSeries extends Component {
+
+class EditSeries extends Component {
   constructor(props) {
     super(props)
-
+        
     this.state = {
-      genres: [],
-      isLoading: false
-    }
-
-    this.saveSeries = this.saveSeries.bind(this)
+      isLoading: false,
+      redirect: false,
+			serie: {},
+			genres: []
+		}
+		
+		this.saveSeries = this.saveSeries.bind(this)
   }
   componentDidMount() {
-    this.setState({isLoading: true})
+    this.setState({ isLoading: true })
+
+    api.loadSerieById(this.props.match.params.id)
+      .then(res => {
+				this.setState({ serie: res.data })
+				this.refs.name.value = this.state.serie.name
+				this.refs.status.value = this.state.serie.status
+				this.refs.genre.value = this.state.serie.genre
+				this.refs.comments.value = this.state.serie.comments
+			})
+
     api.loadGenres()
       .then((res) => {
         this.setState({
@@ -30,15 +43,16 @@ class NewSeries extends Component {
           redirect: false
         })
     	})
-  }
-  saveSeries() {
+	}
+	saveSeries() {
     const newSerie = {
+			id: this.props.match.params.id,
             name: this.refs.name.value,
             status: this.refs.status.value,
             genre: this.refs.genre.value,
             comments: this.refs.comments.value
     }
-    api.saveSerie(newSerie)
+    api.updateSerie(newSerie)
       .then((res) => {
         this.setState({
           redirect: '/series/' + this.refs.genre.value
@@ -46,15 +60,15 @@ class NewSeries extends Component {
       })
     return false
   }
-  render() {
-  	return (
+	render() {
+    return (
       <section className="intro-section">
         { 
           this.state.redirect &&
           <Redirect to={this.state.redirect}/>
         }
         <div className="container">
-          <h1 className='display-4 my-2'>Nova série</h1>
+          <h1 className='display-4 my-2'>Editar série</h1>
           <form>
           	<div className='form-row'>
 							<div className='col'>
@@ -92,9 +106,9 @@ class NewSeries extends Component {
             <button type="button" className="btn btn-danger" onClick={this.saveSeries}>Salvar</button>
 	        </form>
         </div>
-      </section>
+			</section>
     )
   }
 }
 
-export default NewSeries
+export default EditSeries
