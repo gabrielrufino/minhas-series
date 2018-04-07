@@ -15,34 +15,36 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
+          <nav className="navbar navbar-expand-lg navbar-light navbar-fixed-top">
             <div className="container">
-              <div className="navbar-header page-scroll">
-                <Link className="navbar-brand page-scroll" to="/">
-                  <img src="images/logo.png" height="30" alt=""/>
-                </Link>
-              </div>
+              <Link className="navbar-brand page-scroll" to="/">
+                <img src="images/logo.png" height="30" alt=""/>
+              </Link>
 
-              <div className="collapse navbar-collapse navbar-ex1-collapse">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div className="collapse navbar-collapse" id="navbar">
                 <ul className="nav navbar-nav">
-                  <li>
-                    <Link to="/">Home</Link>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/">Home</Link>
                   </li>
-                  <li>
-                    <Link to="/new">Nova série</Link>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/new">Nova série</Link>
                   </li>
-                  <li>
-                    <Link to="/about">Sobre</Link>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/about">Sobre</Link>
                   </li>
                 </ul>
               </div>
             </div>
           </nav>
 
-          <Route path="/" exact component={Home}/>
-          <Route path="/series/:genre" component={Series}/>
-          <Route path="/new" exact component={NewSeries}/>
-          <Route path="/about" exact component={About}/>
+          <Route path="/" exact component={ Home } />
+          <Route path="/series/:genre" component={ Series } />
+          <Route path="/new" exact component={ NewSeries } />
+          <Route path="/about" exact component={ About } />
         </div>
       </Router>
     )

@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 // Function-stateless-component
 const About = () => (
     <div className="intro-section">
-        <h1>Sobre</h1>
+        <h1 className='display-4'>Sobre</h1>
     </div>
 )
 
