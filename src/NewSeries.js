@@ -48,25 +48,25 @@ class NewSeries extends Component {
   }
   render() {
   	return (
-      <section className="intro-section">
+      <section className='intro-section'>
         { 
           this.state.redirect &&
           <Redirect to={this.state.redirect}/>
         }
-        <div className="container">
+        <div className='container'>
           <h1 className='display-4 my-2'>Nova série</h1>
           <form>
           	<div className='form-row'>
 							<div className='col'>
 								<div className='form-group'>
 									<label for='name'>Título</label>
-									<input type="text" className="form-control" id='name' placeholder='Nome da série' ref='name'/>
+									<input type='text' className='form-control' id='name' placeholder='Nome da série' ref='name'/>
 								</div>
 							</div>
 							<div className='col'>
 								<div className='form-group'>
 									<label for='status'>Estado</label>
-									<select className="form-control" id='status' ref="status">
+									<select className='form-control' id='status' ref='status'>
 										{
 											Object.keys(statuses).map(key => <option key={key} value={key}>{statuses[key]}</option>)
 										}
@@ -77,7 +77,7 @@ class NewSeries extends Component {
 						
 						<div className='form-group'>
 							<label for='genre'>Gênero</label>
-							<select className="form-control" id='genre' ref="genre">
+							<select className='form-control' id='genre' ref='genre'>
                 {
                   this.state.genres
                     .map(key => <option key={key} value={key}>{key}</option>)
@@ -87,9 +87,9 @@ class NewSeries extends Component {
                             
 						<div className='form-group'>
 							<label for='comments'>Comentários</label>
-							<textarea className="form-control" id='comments' placeholder='Faça seus comentários aqui' ref='comments'></textarea> 
+							<textarea className='form-control' id='comments' placeholder='Faça seus comentários aqui' ref='comments'></textarea> 
 						</div>
-            <button type="button" className="btn btn-danger" onClick={this.saveSeries}>Salvar</button>
+            <button type='button' className='btn btn-danger' onClick={this.saveSeries}>Salvar</button>
 	        </form>
         </div>
       </section>
