@@ -7,7 +7,7 @@ class Navbar extends Component {
       <nav className='navbar navbar-expand-lg navbar-light navbar-fixed-top'>
         <div className='container'>
           <Link className='navbar-brand' to='/'>
-            <img src='/images/logo.png' height='30' alt=''/>
+            <img src='/images/logo.png' height='30' alt='Logo Minhas Séries'/>
           </Link>
 
           <button className='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbar' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
