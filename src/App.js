@@ -9,7 +9,7 @@ import Home from './views/Home'
 import Series from './Series'
 import NewSeries from './NewSeries'
 import EditSerie from './EditSeries'
-import About from './About'
+import About from './views/About'
 
 class App extends Component {
   render() {
