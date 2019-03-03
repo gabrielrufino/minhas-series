@@ -59,13 +59,13 @@ class NewSeries extends Component {
           	<div className='form-row'>
 							<div className='col'>
 								<div className='form-group'>
-									<label for='name'>Título</label>
+									<label htmlFor='name'>Título</label>
 									<input type='text' className='form-control' id='name' placeholder='Nome da série' ref='name'/>
 								</div>
 							</div>
 							<div className='col'>
 								<div className='form-group'>
-									<label for='status'>Estado</label>
+									<label htmlFor='status'>Estado</label>
 									<select className='form-control' id='status' ref='status'>
 										{
 											Object.keys(statuses).map(key => <option key={key} value={key}>{statuses[key]}</option>)
@@ -76,7 +76,7 @@ class NewSeries extends Component {
 						</div>
 						
 						<div className='form-group'>
-							<label for='genre'>Gênero</label>
+							<label htmlFor='genre'>Gênero</label>
 							<select className='form-control' id='genre' ref='genre'>
                 {
                   this.state.genres
@@ -86,7 +86,7 @@ class NewSeries extends Component {
 						</div>
                             
 						<div className='form-group'>
-							<label for='comments'>Comentários</label>
+							<label htmlFor='comments'>Comentários</label>
 							<textarea className='form-control' id='comments' placeholder='Faça seus comentários aqui' ref='comments'></textarea> 
 						</div>
             <button type='button' className='btn btn-danger' onClick={this.saveSeries}>Salvar</button>
