@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 
 import Home from './views/Home'
-import Series from './Series'
+import Series from './views/Series'
 import NewSeries from './views/NewSeries'
 import EditSerie from './views/EditSeries'
 import About from './views/About'
