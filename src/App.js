@@ -7,7 +7,7 @@ import {
 
 import Home from './views/Home'
 import Series from './Series'
-import NewSeries from './NewSeries'
+import NewSeries from './views/NewSeries'
 import EditSerie from './EditSeries'
 import About from './views/About'
 
