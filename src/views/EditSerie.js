@@ -10,7 +10,7 @@ const statuses = {
 }
 
 
-class EditSeries extends Component {
+class EditSerie extends Component {
   constructor(props) {
     super(props)
         
@@ -114,4 +114,4 @@ class EditSeries extends Component {
   }
 }
 
-export default EditSeries
+export default EditSerie

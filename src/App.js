@@ -9,7 +9,7 @@ import Navbar from './components/Navbar'
 import Home from './views/Home'
 import Series from './views/Series'
 import NewSerie from './views/NewSerie'
-import EditSerie from './views/EditSeries'
+import EditSerie from './views/EditSerie'
 import About from './views/About'
 
 class App extends Component {
