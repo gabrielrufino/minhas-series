@@ -22,7 +22,8 @@ class NewSerie extends Component {
   }
 
   componentDidMount() {
-    this.setState({isLoading: true})
+    this.setState({ isLoading: true })
+
     api.loadGenres()
       .then((res) => {
         this.setState({
@@ -35,17 +36,19 @@ class NewSerie extends Component {
 
   saveSeries() {
     const newSerie = {
-            name: this.refs.name.value,
-            status: this.refs.status.value,
-            genre: this.refs.genre.value,
-            comments: this.refs.comments.value
+      name: this.refs.name.value,
+      status: this.refs.status.value,
+      genre: this.refs.genre.value,
+      comments: this.refs.comments.value
     }
+
     api.saveSerie(newSerie)
       .then((res) => {
         this.setState({
           redirect: '/series/' + this.refs.genre.value
         })
       })
+
     return false
   }
 
