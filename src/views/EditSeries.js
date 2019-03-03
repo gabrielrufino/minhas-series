@@ -23,6 +23,7 @@ class EditSeries extends Component {
 		
 		this.saveSeries = this.saveSeries.bind(this)
   }
+
   componentDidMount() {
     this.setState({ isLoading: true })
 
@@ -43,7 +44,8 @@ class EditSeries extends Component {
           redirect: false
         })
     	})
-	}
+  }
+
 	saveSeries() {
     const newSerie = {
 			id: this.props.match.params.id,
@@ -60,6 +62,7 @@ class EditSeries extends Component {
       })
     return false
   }
+
 	render() {
     return (
       <section className='intro-section'>
