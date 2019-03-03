@@ -20,6 +20,7 @@ class NewSeries extends Component {
 
     this.saveSeries = this.saveSeries.bind(this)
   }
+
   componentDidMount() {
     this.setState({isLoading: true})
     api.loadGenres()
@@ -31,6 +32,7 @@ class NewSeries extends Component {
         })
     	})
   }
+
   saveSeries() {
     const newSerie = {
             name: this.refs.name.value,
@@ -46,6 +48,7 @@ class NewSeries extends Component {
       })
     return false
   }
+
   render() {
   	return (
       <section className='intro-section'>
