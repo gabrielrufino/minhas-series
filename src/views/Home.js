@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import api from './Api'
+import api from '../Api'
 
 class Home extends Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class Home extends Component {
       isLoading: false
     }
   }
+
   componentDidMount() {
     this.setState({ isLoading: true })
     api.loadGenres()
@@ -22,6 +23,7 @@ class Home extends Component {
         })
       })
   }
+
   renderGenreLink(genre) {
     return (
       <span key={genre}>
@@ -29,6 +31,7 @@ class Home extends Component {
       </span>
     )
   }
+
   render() {
   	return (
       <div className='container'>

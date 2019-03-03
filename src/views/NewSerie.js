@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 
-import api from './Api'
+import api from '../Api'
 
 const statuses = {
     'watched': 'Assistido',
@@ -9,7 +9,7 @@ const statuses = {
     'toWatch': 'Assistir'
 }
 
-class NewSeries extends Component {
+class NewSerie extends Component {
   constructor(props) {
     super(props)
 
@@ -20,8 +20,10 @@ class NewSeries extends Component {
 
     this.saveSeries = this.saveSeries.bind(this)
   }
+
   componentDidMount() {
-    this.setState({isLoading: true})
+    this.setState({ isLoading: true })
+
     api.loadGenres()
       .then((res) => {
         this.setState({
@@ -31,21 +33,25 @@ class NewSeries extends Component {
         })
     	})
   }
+
   saveSeries() {
     const newSerie = {
-            name: this.refs.name.value,
-            status: this.refs.status.value,
-            genre: this.refs.genre.value,
-            comments: this.refs.comments.value
+      name: this.refs.name.value,
+      status: this.refs.status.value,
+      genre: this.refs.genre.value,
+      comments: this.refs.comments.value
     }
+
     api.saveSerie(newSerie)
       .then((res) => {
         this.setState({
           redirect: '/series/' + this.refs.genre.value
         })
       })
+
     return false
   }
+
   render() {
   	return (
       <section className='intro-section'>
@@ -59,13 +65,13 @@ class NewSeries extends Component {
           	<div className='form-row'>
 							<div className='col'>
 								<div className='form-group'>
-									<label for='name'>Título</label>
+									<label htmlFor='name'>Título</label>
 									<input type='text' className='form-control' id='name' placeholder='Nome da série' ref='name'/>
 								</div>
 							</div>
 							<div className='col'>
 								<div className='form-group'>
-									<label for='status'>Estado</label>
+									<label htmlFor='status'>Estado</label>
 									<select className='form-control' id='status' ref='status'>
 										{
 											Object.keys(statuses).map(key => <option key={key} value={key}>{statuses[key]}</option>)
@@ -76,7 +82,7 @@ class NewSeries extends Component {
 						</div>
 						
 						<div className='form-group'>
-							<label for='genre'>Gênero</label>
+							<label htmlFor='genre'>Gênero</label>
 							<select className='form-control' id='genre' ref='genre'>
                 {
                   this.state.genres
@@ -86,7 +92,7 @@ class NewSeries extends Component {
 						</div>
                             
 						<div className='form-group'>
-							<label for='comments'>Comentários</label>
+							<label htmlFor='comments'>Comentários</label>
 							<textarea className='form-control' id='comments' placeholder='Faça seus comentários aqui' ref='comments'></textarea> 
 						</div>
             <button type='button' className='btn btn-danger' onClick={this.saveSeries}>Salvar</button>
@@ -97,4 +103,4 @@ class NewSeries extends Component {
   }
 }
 
-export default NewSeries
+export default NewSerie
