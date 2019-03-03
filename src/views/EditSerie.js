@@ -49,17 +49,19 @@ class EditSerie extends Component {
 	saveSeries() {
     const newSerie = {
 			id: this.props.match.params.id,
-            name: this.refs.name.value,
-            status: this.refs.status.value,
-            genre: this.refs.genre.value,
-            comments: this.refs.comments.value
+      name: this.refs.name.value,
+      status: this.refs.status.value,
+      genre: this.refs.genre.value,
+      comments: this.refs.comments.value
     }
+
     api.updateSerie(newSerie)
       .then((res) => {
         this.setState({
           redirect: '/series/' + this.refs.genre.value
         })
       })
+
     return false
   }
 
