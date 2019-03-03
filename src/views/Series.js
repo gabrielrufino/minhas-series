@@ -22,6 +22,7 @@ class Series extends Component {
 
   loadData() {
     this.setState({isLoading: true})
+
     api.loadSeriesByGenre(this.props.match.params.genre)
       .then((res) => {
         this.setState({
