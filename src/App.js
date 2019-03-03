@@ -8,7 +8,7 @@ import Navbar from './components/Navbar'
 
 import Home from './views/Home'
 import Series from './views/Series'
-import NewSeries from './views/NewSeries'
+import NewSerie from './views/NewSerie'
 import EditSerie from './views/EditSeries'
 import About from './views/About'
 
@@ -22,7 +22,7 @@ class App extends Component {
           <Route path='/' exact component={ Home } />
           <Route path='/series/:genre' exact component={ Series } />
           <Route path='/series/edit/:id' component={ EditSerie } />
-          <Route path='/new' exact component={ NewSeries } />
+          <Route path='/new' exact component={ NewSerie } />
           <Route path='/about' exact component={ About } />
         </div>
       </Router>
