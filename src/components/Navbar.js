@@ -6,7 +6,7 @@ class Navbar extends Component {
     return (
       <nav className='navbar navbar-expand-lg navbar-light navbar-fixed-top'>
         <div className='container'>
-          <Link className='navbar-brand page-scroll' to='/'>
+          <Link className='navbar-brand' to='/'>
             <img src='/images/logo.png' height='30' alt=''/>
           </Link>
 
