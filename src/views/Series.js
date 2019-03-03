@@ -15,9 +15,11 @@ class Series extends Component {
     this.renderSeries = this.renderSeries.bind(this)
     this.loadData = this.loadData.bind(this)
   }
+
   componentDidMount() {
     this.loadData()
   }
+
   loadData() {
     this.setState({isLoading: true})
     api.loadSeriesByGenre(this.props.match.params.genre)
@@ -28,12 +30,14 @@ class Series extends Component {
         })
     })
   }
+
   removeSerieById(id) {
     api.removeSerieById(id)
       .then(res => {
         this.loadData()
       })
   }
+
   renderSeries(serie) {
     return (
       <div key={ serie.id } className='col-md-4'>
@@ -49,6 +53,7 @@ class Series extends Component {
       </div>
     )
   }
+
   render() {
     return (
       <div className='container'>
