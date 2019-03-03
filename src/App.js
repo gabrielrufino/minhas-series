@@ -8,7 +8,7 @@ import {
 import Home from './views/Home'
 import Series from './Series'
 import NewSeries from './views/NewSeries'
-import EditSerie from './EditSeries'
+import EditSerie from './views/EditSeries'
 import About from './views/About'
 
 class App extends Component {

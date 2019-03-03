@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 
-import api from './Api'
+import api from '../Api'
 
 const statuses = {
 	'watched': 'Assistido',
