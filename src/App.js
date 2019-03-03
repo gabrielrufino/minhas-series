@@ -5,7 +5,7 @@ import {
   Link
 } from 'react-router-dom'
 
-import Home from './Home'
+import Home from './views/Home'
 import Series from './Series'
 import NewSeries from './NewSeries'
 import EditSerie from './EditSeries'
